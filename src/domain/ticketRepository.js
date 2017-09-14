@@ -22,3 +22,10 @@ exports.findAll = function(onSuccess, onError){
 		}		
 	})
 }
+
+exports.findOne = function(id, onSuccess, onError) {	
+	ticketEntity.findOne({"_id": id}).exec(function(err, ticket) {
+		if (err) return onError("Hubo un error al obtener un  ticket "+ err)
+		else return onSuccess(ticket)
+	})
+}

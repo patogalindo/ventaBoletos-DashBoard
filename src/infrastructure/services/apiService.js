@@ -31,3 +31,21 @@ exports.getTickets = function (req, res) {
 			})
 	})
 }
+
+exports.getTicket = function(req,res){
+	var id = req.params.id
+	ticketApp.getTicket(id,function(ticket) {
+		
+		res.json({
+			status: "success",
+			ticket:ticket
+		})
+
+	}, function(err) {
+		res.status(400)
+		res.json({
+			status: "failure",
+			message: err
+		})
+	})
+}

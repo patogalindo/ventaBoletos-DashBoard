@@ -13,5 +13,4 @@ angular.module('ticketsApp.ticketService',['angular-jwt'])
 			  	onError(response.data.message)
 			})
 		}
-
 }])
