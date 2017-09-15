@@ -5,7 +5,7 @@ angular.module('ticketsApp.ticketService',['angular-jwt'])
 		this.getTickets = function (onSucces, onError) {
 			$http({
 			  method: 'GET',
-			  url: 'https://localhost:33192/v1/tickets/'
+			  url: 'https://ventadeboletos.herokuapp.com/v1/tickets/'
 			}).then(function (response) {
 			    onSucces(response.data.tickets)
 			}, function (response) {
