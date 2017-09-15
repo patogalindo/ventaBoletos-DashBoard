@@ -4,8 +4,7 @@
   "description": "",
   "main": "web.js",
   "scripts": {
-    "start": "node web.js",
-    "postinstall": "npm install"
+    "start": "node web.js"
   },
   "author": "",
   "license": "ISC",
