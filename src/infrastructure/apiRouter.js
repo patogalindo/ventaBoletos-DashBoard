@@ -11,6 +11,6 @@ router.get("/prueba", function(req, res) {
 router.post("/tickets",apiService.registerTicket)
 router.get("/tickets",apiService.getTickets)
 router.get("/tickets/:id",apiService.getTicket)
-
+router.put("/tickets/:id",apiService.updateTicket)
 // Exportar el módulo de rutas para API
 module.exports = router

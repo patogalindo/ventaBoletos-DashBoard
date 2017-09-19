@@ -27,15 +27,20 @@
 						<table class="table table-striped">
 							<thead>
 								<th>Id</th>
-								<th>Codigo</th>
+								<th class="text-center">Codigo</th>
+								<th class="text-center">Boleto Verificado</th>
 							</thead>
 							<tbody>
 								<tr ng-repeat="ticket in tickets">
 									<td>
 										{{ticket._id}}
 									</td>
-									<td>
+									<td class="text-center">
 										{{ticket.code}}
+									</td>
+									<td class="text-center">
+										<span ng-if="ticket.verified === true" style="color:green">SI</span>
+										<span ng-if="ticket.verified === false" style="color:red">NO</span>
 									</td>
 								</tr>
 							</tbody>

@@ -1,6 +1,7 @@
 var mongoose = require("mongoose")
 
 var ticketSchema = new mongoose.Schema({
-	code: String
+	code: String,
+	verified: Boolean
 })
 module.exports = mongoose.model("Tickets" , ticketSchema)

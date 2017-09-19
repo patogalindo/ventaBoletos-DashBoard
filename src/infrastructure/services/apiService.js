@@ -16,7 +16,24 @@ exports.registerTicket = function (req, res) {
 		})
 	})
 }
-
+exports.updateTicket = function (req, res) {
+	var data = req.body
+	var id = req.params.id 
+	ticketApp.updateTicket(id,data, function (ticket) {
+		res.status(201)
+		res.json({
+			status: "success",
+			message: "ticket actualizado con exito",
+			ticket: ticket
+		})
+	},function (err) {
+		res.status(400)
+		res.json({
+			status: "failure",
+			message: err
+		})
+	})
+}
 exports.getTickets = function (req, res) {
 	ticketApp.getTickets(function (tickets) {
 		res.json({
