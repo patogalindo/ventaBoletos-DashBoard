@@ -37,3 +37,11 @@ exports.update = function (ticket, data, onSuccess, onError) {
 		else return onSuccess(ticket)
 	})
 }
+
+exports.delete = function(ticket, onSuccess, onError) {
+	ticket.remove(function(err) {
+		if (err) return onError("Hubo un error al borrar el ticket "+ticket._id+": "+err)
+		else return onSuccess()
+	})
+
+}

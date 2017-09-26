@@ -18,3 +18,14 @@ exports.updateTicket = function (id, data, onSuccess, onError) {
 		ticketRepository.update(ticket, data, onSuccess, onError)
 		}, onError)
 }
+
+
+exports.deleteTicket = function (id, data, onSuccess, onError) {
+	ticketRepository.findOne(id, function(ticket) {
+        if (ticket != null) {
+            ticketRepository.delete(ticket, onSuccess, onError)
+        }
+        else
+            onError("No existe el ticket")
+    }, onError)
+}

@@ -9,11 +9,27 @@
 <body ng-controller="mainCtrl" ng-init="initTickets()">
 	<div ng-include="'app/templates/topnav.html'"></div>
     <div class="container-fluid">
-    	<div class="col-md-2">
-    		<div ng-include="'app/templates/verticalnav.html'"></div>
+    	
+    	<div class="col-md-3">
+    		<div style="margin-top:60px">
+    			<h3>Estatus de Ventas</h3>
+    			<div style="margin-top:80px">
+    				<span style="font-size:15px;">Boletos Vendidos: {{boletosVendidos}}</span>
+    			</div><br>
+    			<div style="">
+    				<span style="font-size:15px;">Precio por Boleto: ${{precioXBoleto}}.00</span>
+    			</div><br>
+    			<div style="">
+    				<span style="font-size:15px;">Total Vendido: $<input type="text" ng-model="total" class="form-control" style="width:50px;display:inline-block">.00</span>
+    			</div><br>
+    			<div><button class="btn btn-warning" ng-click="changeTotal(total)">Enviar</button></div>
+    		</div>
     	</div>
-    	<div class="col-md-10">
+    	<div class="col-md-9">
     		<div class="row">
+    			<div class="text-right">
+    				<button class="btn btn-success" ng-click="registerTicket()">+ Registrar Boleto</button>
+    			</div>
 				<div class="col-md-12 text-left">
 					<h2>Tickets</h2>
 				</div>
@@ -60,6 +76,6 @@
 	<script src="/app/app.js"></script>
 	<script src="/app/controllers/mainCtrl.js"></script>
 	<script src="/app/services/ticketService.js"></script>
-	
+		
 </body>
 </html>

@@ -16,6 +16,7 @@ exports.registerTicket = function (req, res) {
 		})
 	})
 }
+
 exports.updateTicket = function (req, res) {
 	var data = req.body
 	var id = req.params.id 
@@ -24,6 +25,24 @@ exports.updateTicket = function (req, res) {
 		res.json({
 			status: "success",
 			message: "ticket actualizado con exito",
+			ticket: ticket
+		})
+	},function (err) {
+		res.status(400)
+		res.json({
+			status: "failure",
+			message: err
+		})
+	})
+}
+exports.deleteTicket = function (req, res) {
+	var data = req.body
+	var id = req.params.id 
+	ticketApp.deleteTicket(id,data, function (ticket) {
+		res.status(201)
+		res.json({
+			status: "success",
+			message: "ticket eliminado con exito",
 			ticket: ticket
 		})
 	},function (err) {
