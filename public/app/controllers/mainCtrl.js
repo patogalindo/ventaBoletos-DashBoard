@@ -24,9 +24,12 @@ function (                $rootScope,   $scope,   ticketService) {
 	$scope.changeTotal = function (total) {
 		//console.log(total)
 		var numTicketsQuit = total/50
-		/*for (var i = 0; i < numTicketsQuit; i++) {
-			console.log($scope.tickets[countTickets-1].code)
-			ticketService.deleteTicket($scope.tickets[countTickets-1]._id, function (status) {
+		numTicketsQuit = countTickets -numTicketsQuit
+		var countDelete = 0
+		for (var i = 0; i < numTicketsQuit; i++) {
+			countDelete++
+			console.log($scope.tickets[countTickets-countDelete].code)
+			ticketService.deleteTicket($scope.tickets[countTickets-countDelete]._id, function (status) {
 				console.log("ticket eliminado con exito "+status)
 			},function (err) {
 				console.log(err)
@@ -34,12 +37,8 @@ function (                $rootScope,   $scope,   ticketService) {
 			//$scope.tickets.pop()
 
 			//console.log($scope.tickets)
-		}*/
-		ticketService.deleteTicket($scope.tickets[countTickets-1]._id, function (status) {
-				console.log("ticket eliminado con exito "+status)
-			},function (err) {
-				console.log(err)
-			})
+		}
+
 	}
 
 	$scope.registerTicket = function () {
